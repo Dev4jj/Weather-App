@@ -1,0 +1,20 @@
+<%-include("partials/header.ejs")%>
+
+    <body>
+
+        <div class="container">
+            <div class="row">
+                <div class="card col-7" id="form-card">
+                    <img id="company-logo" src="images/weather.png">
+                    <p class="m-5">To access the forcast for your location please complete the form below...</p>
+                    <form action="/the-forecast" method="post">
+                        <div class="m-4">
+                            <label for="city" class="form-label">What city are you loacted in:</label>
+                            <input type="text" id="city" name="city" placeholder="City" class="form-control">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <%-include("partials/footer.ejs")%>

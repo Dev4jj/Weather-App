@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Exo+2&display=swap');
+
+body{
+    font-family: "Abel", serif;
+}
+
+#form-card{
+    position: relative;
+    margin: auto;
+    top: 30vh;
+    box-shadow: 4px 4px 20px lightgray;
+}
+
+#company-logo{
+    width: 70px;
+    position: absolute;
+    top:-10%;
+    right:-5%;
+}
+
+/* forecast page logo*/
+
+#forecast-card{
+    margin: 15px auto;
+    box-shadow: 4px 4px 20px lightgray;
+}
+
+#forecast-page-logo{
+    width: 70px;
+}
+
+h1{
+    display: inline-block;
+}
+
+#change-location{
+    text-decoration: none;
+    border: none;
+    background-color: white;
+}
+
+#change-location:hover{
+    color: rgb(64, 147, 224);
+}
+
+nav{
+    background-color: white;
+}
+
+.weather-img{
+    width: 200px;
+}
+
+.weather-info-img{
+    width:50px;
+}

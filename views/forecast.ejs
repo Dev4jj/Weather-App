@@ -1,0 +1,96 @@
+<%-include("partials/header.ejs")%>
+
+    <body class="bg-body-tertiary">
+        <div class="container">
+            <div class="row">
+            <div class="card col-7" id="forecast-card">
+                <div class="row">
+                <div class="col text-center m-1">
+                    <div class="">
+                        <form action="/" method="get">
+                            <button id="change-location">&lt;&lt;&lt; Change Location</button>
+                        </form>
+                    </div>
+                    <p>
+                        <%=city%>, <%=country%>
+                    </p>
+                    <%if (locals.weather_id>=200 && locals.weather_id<=232){%>
+                            <img src="/images/storm.png" class="weather-img">
+                            <%}else if(locals.weather_id>=300 && locals.weather_id<=321){%>
+                                    <img src="/images/storm (1).png" class="weather-img">
+                                    <%}else if(locals.weather_id>=500 && locals.weather_id<=531){%>
+                                            <img src="/images/rainy.png" class="weather-img">
+                                            <%}else if(locals.weather_id>=600 && locals.weather_id<=622){%>
+                                                    <img src="/images/snowflake.png" class="weather-img">
+                                                    <%}else if(locals.weather_id>=701 && locals.weather_id<=781){%>
+                                                            <img src="/images/fog.png" class="weather-img">
+                                                            <%}else if(locals.weather_id==800){%>
+                                                                <img src="/images/sun.png" class="weather-img">
+                                                                <%}else if(((locals.weather_id>=801 && locals.weather_id
+                                                                    <=804)&&(cloudcover<=50))){%>
+                                                                        <img src="/images/cloud.png"
+                                                                            class="weather-img">
+                                                                        <%}else if(((locals.weather_id>=801 &&
+                                                                            locals.weather_id<=804)&&(cloudcover>
+                                                                                50))){%>
+                                                                                <img src="/images/cloudy.png"
+                                                                                    class="weather-img">
+                                                                                <%}%>
+                                                                                    <p>
+                                                                                        <%= weather_description %>
+                                                                                    </p>
+                                                                                    <h2 class="card-title">
+                                                                                        <%=current_temp%> &#176;C
+                                                                                    </h2>
+                </div>
+                </div>
+                <hr>
+                <div class="row">
+                <div class="col text-center">
+                    <img src="/images/wind.png" class="weather-info-img">
+                    <p class="d-inline">Wind Speed: <%=wind_speed%> km/h
+                            <%if((locals.wind_dir < 90)&&(locals.wind_dir > 0)){%>
+                                <span>NE</span>
+                                <%}else if(locals.wind_dir=90){%>
+                                    <span>E</span>
+                                    <%}else if((locals.wind_dir> 90)&&(locals.wind_dir < 180)){%>
+                                            <span>SE</span>
+                                            <%}else if(locals.wind_dir=180){%>
+                                                <span>S</span>
+                                                <%}else if((locals.wind_dir> 180)&&(locals.wind_dir < 270 )){%>
+                                                        <span>SW</span>
+                                                        <%}else if(locals.wind_dir=270){%>
+                                                            <span>W</span>
+                                                            <%}else if((locals.wind_dir> 270)&&(locals.wind_dir < 360)){%>
+                                                                    <span>NW</span>
+                                                                    <%}else if((locals.wind_dir=0)||(locals.wind_dir=360)){%>
+                                                                        <span>N</span>
+                                                                        <%}%>
+                    </p>
+                </div>
+                </div>
+                <hr>
+                <div class="row">
+                <div class="col text-center">
+                    <img src="/images/hot.png" class="weather-info-img">
+                    <p class="d-inline">MAX Temp: <%=temp_max%>&#176;C - MIN Temp: <%=temp_min%>&#176;C</p>
+                </div>
+                </div>
+                <hr>
+                <div class="row">
+                <div class="col text-center">
+                    <img src="/images/cloudy.png" class="weather-info-img">
+                    <p class="d-inline">Cloud Cover: <%=cloudcover%> %</p>
+                </div>
+                </div>
+                <hr>
+                <div class="row">
+                <div class="col text-center mb-1">
+                    <img src="/images/humidity.png" class="weather-info-img">
+                    <p class="d-inline">Humidity: <%=humidity%> %</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <%-include("partials/footer.ejs")%>
