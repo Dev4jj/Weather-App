@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import axios from "axios";
+import api_key from "./apikey.js";
 
 const app = express();
 const port = 3000;
@@ -8,7 +9,7 @@ const port = 3000;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const api_key = "def64655a738f89d1d2adb8a06f08ac4";
+
 const geolocateApiUrl = `http://api.openweathermap.org/geo/1.0/direct?`;
 const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?`;
 
